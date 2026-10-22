@@ -1,0 +1,3 @@
+The `get_limit(tier)` function in `src/config.py` resolves a rate limit tier by calling the `resolve` function imported from `vendor.ratelib.limits`. It passes two arguments to `resolve`: the `TIER_TABLE` dictionary (also imported from `vendor.ratelib.limits`) and the `tier` string passed to `get_limit`.
+
+The `resolve(table, tier, default=100)` helper function looks up the given `tier` key in the provided `table` dictionary (`TIER_TABLE`). `TIER_TABLE` defines limits for specific tiers (e.g., "free" = 15, "pro" = 100, "ultra" = 300). If the `tier` exists in the table, `resolve` returns its corresponding value. If the `tier` is not found, `resolve` falls back to returning the default value of 100.
